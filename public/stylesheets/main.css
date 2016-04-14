@@ -1,0 +1,27 @@
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail{
+    padding: 0;
+}
+
+.photoGrid{
+    display: flex;
+    flex-wrap: wrap;
+}
+.newForm{
+    width: 30%;
+    margin: 25px auto;
+}
+.newFormH1{
+    text-align: center;
+}
+
+#formDelete{
+    display: inline;
+}
+
+.well{
+    margin-top: 3px;
+}

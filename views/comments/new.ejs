@@ -2,10 +2,10 @@
 
 <div class="container">
     <div class="row"> 
-        <h1 class="newFormH1"> Add your comment to <%= campground.name %> ! </h1>
+        <h1 class="newFormH1"> Add your comment to <%= bike.name %> ! </h1>
         
         <div class="newForm">
-            <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
+            <form action="/bikes/<%= bike._id %>/comments" method="POST">
                 <div class="form-group">
                     <input class="form-control" type="text" name="text" placeholder="Type comment here">
                 </div>
@@ -13,7 +13,7 @@
                     <button class="btn btn-lg btn-primary btn-block"> Comment! </button>
                 </div>
             </form>
-            <a class="btn" href="/campgrounds/<% campground._id %>"> Go back </a>
+            <a class="btn" href="/bikes/<% bike._id %>"> Go back </a>
         </div>
     
     </div>

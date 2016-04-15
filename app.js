@@ -55,7 +55,7 @@ app.use(function(req, res, next){
 
 app.use(indexRoutes);
 app.use("/bikes", bikesRoutes);
-app.use("/campgrounds/:id/comments", commentsRoutes);
+app.use("/bikes/:id/comments", commentsRoutes);
 
 //seedDB();
         

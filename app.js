@@ -53,7 +53,6 @@ app.use(indexRoutes);
 app.use("/campgrounds", campgroundsRoutes);
 app.use("/campgrounds/:id/comments", commentsRoutes);
 //seedDB();
-        
 //intialize server/////////////////////
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("Server started");

@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+
+<div class="container">
+    
+    <header class="jumbotron">
+            <div class="container">
+                <h2> MotoSwag </h2>
+                <p> Where swag riders and their bikes belong. </p>
+                <p> 
+                    <a class="btn btn-primary btn-large" href="/bikes/new"> Add New Bike! </a>
+                </p>
+            </div>
+    </header>
+ 
+    <div class="row photoGrid text-center"> 
+        <% bikes.forEach(function(bike){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src="<%= bike.image %>">
+                    <div class="caption">
+                        <h4> <%= bike.name %> </h4>
+                    </div>
+                    <a class="detailBtn btn btn-primary" href="/campgrounds/<%= bike._id %>"> More info </a>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    
+</div>
+
+<% include ../partials/footer %>

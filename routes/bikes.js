@@ -4,18 +4,18 @@ var Bike = require("../models/bike");
 var middleware = require("../middleware");
 
 
-//Campgrounds Index - Show all campgrounds
+//Bike Index - Show all bikes
 router.get("/", function(req, res) {
     Bike.find({}, function(err, allBikes){
         if(err){
             console.log(err);
         } else {
-            res.render("campgrounds/index", {bikes: allBikes});
+            res.render("bikes/index", {bikes: allBikes});
         }
     });
 });
 
-//Campgrounds Create- Add new campground to DB
+//Campgrounds Create- Add new bike to DB
 router.post("/", middleware.isLoggedIn, function(req, res) {
     var submit = req.body;
     console.log(submit);
@@ -26,15 +26,15 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
             newBike.author.id = req.user.id;
             newBike.author.username = req.user.username;
             newBike.save();
-            console.log("campground created! by " + req.user.username);
-            res.redirect("/campgrounds");
+            console.log("bike created! by " + req.user.username);
+            res.redirect("/bikes");
         }
     });
 });
 
-//Campgrounds New - Show form to create new campground
+//Campgrounds New - Show form to create new bike
 router.get("/new", middleware.isLoggedIn, function(req, res) {
-    res.render("campgrounds/new");
+    res.render("bikes/new");
 });
 
 //Campgrounds Show - show information about one campground
@@ -77,5 +77,5 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function(req,res){
         }
     });
 });
-
+*/
 module.exports = router;

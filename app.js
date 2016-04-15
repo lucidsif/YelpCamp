@@ -10,12 +10,14 @@ var express             = require("express"),
     localStrategy       = require("passport-local"),
     passportMongoose    = require("passport-local-mongoose"),
     //models
+    Bike                = require("./models/bike"),
     Campground          = require("./models/campground"),
     Comment             = require("./models/comment"),
     User                = require("./models/user"),
     seedDB              = require("./seeds");
     //requiring routes
-var campgroundsRoutes       = require("./routes/campgrounds"),
+var bikesRoutes             = require("./routes/bikes"),
+//    campgroundsRoutes       = require("./routes/campgrounds"),
     commentsRoutes          = require("./routes/comments"),
     indexRoutes             = require("./routes/index");
 
@@ -52,7 +54,7 @@ app.use(function(req, res, next){
 });
 
 app.use(indexRoutes);
-app.use("/campgrounds", campgroundsRoutes);
+app.use("/bikes", bikesRoutes);
 app.use("/campgrounds/:id/comments", commentsRoutes);
 
 //seedDB();

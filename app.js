@@ -23,6 +23,7 @@ var url = process.env.DATABASEURL;
 mongoose.connect(url);
 //mongoose.connect("mongodb://localhost/yelp_camp");
 //mongoose.connect("mongodb://ahmedt93:dragon911@ds023510.mlab.com:23510/motocamp");
+//export DATABASEURL=mongodb://localhost/yelp_camp
 
 app.use(methodOverride("_method"));
 app.set("view engine", "ejs");

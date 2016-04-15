@@ -30,7 +30,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.use(flash());
 
-
 /// Auth
 app.use(require("express-session")({
     secret: "Dragon got a big cheek",

@@ -1,5 +1,5 @@
-var mongoose = require("mongoose");
-var Campground = require("./models/campground");
+/*var mongoose = require("mongoose");
+//var Campground = require("./models/campground");
 var Comment = require("./models/comment");
 
 var data = [
@@ -21,10 +21,11 @@ var data = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     }
 ];
-
+*/
+/*
 function seedDB(){
     Campground.remove({}, function(err){
-      /*  if(err){
+        if(err){
             console.log(err);
         }   else    {
             console.log("removed campgrounds!");
@@ -52,13 +53,13 @@ function seedDB(){
                     }
                 });
             });
-        } */
+        } 
     });
 }
 
 
 module.exports = seedDB;
-
+*/
 //
 /* Campground.remove({}, function(err){
     if(err){

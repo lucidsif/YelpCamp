@@ -30,6 +30,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.use(flash());
 
+
 /// Auth
 app.use(require("express-session")({
     secret: "Dragon got a big cheek",
@@ -52,9 +53,10 @@ app.use(function(req, res, next){
 app.use(indexRoutes);
 app.use("/campgrounds", campgroundsRoutes);
 app.use("/campgrounds/:id/comments", commentsRoutes);
+
 //seedDB();
+        
 //intialize server/////////////////////
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("Server started");
 });
-

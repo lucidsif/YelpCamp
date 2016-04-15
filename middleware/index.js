@@ -1,24 +1,24 @@
 var middlewareObj = {};
-var Campground = require("../models/campground");
+var Bike = require("../models/bike");
 var Comment = require("../models/comment");
 
-middlewareObj.checkCampgroundOwnership = function(req, res, next){
+middlewareObj.checkBikeOwnership = function(req, res, next){
       if(req.isAuthenticated()){
-        Campground.findById(req.params.id, function(err, campground){
+        Bike.findById(req.params.id, function(err, bike){
         if(err){
-            req.flash("error", "Campground not found");
+            req.flash("error", "Bike not found");
             res.redirect("back");
         } else {
-        if(campground.author.id.equals(req.user._id)){
+        if(bike.author.id.equals(req.user._id)){
            next();
         } else {
-            req.flash("error", "Hey, that's not your campground!");
+            req.flash("error", "Hey, that's not your bike!");
             res.redirect("back");
         }
     }
     });
     }   else    {
-        req.flash("error", "You need to be logged in to do that, silly rabbit");
+        req.flash("error", "You need to be logged in to do that, silly swabbit");
     }
 };
 

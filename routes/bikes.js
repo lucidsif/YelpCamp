@@ -15,7 +15,7 @@ router.get("/", function(req, res) {
     });
 });
 
-//Campgrounds Create- Add new bike to DB
+//Bike Create- Add new bike to DB
 router.post("/", middleware.isLoggedIn, function(req, res) {
     var submit = req.body;
     console.log(submit);
@@ -32,50 +32,50 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
     });
 });
 
-//Campgrounds New - Show form to create new bike
+//Bike New - Show form to create new bike
 router.get("/new", middleware.isLoggedIn, function(req, res) {
     res.render("bikes/new");
 });
 
-//Campgrounds Show - show information about one campground
+//Bike Show - show information about one bike
 router.get("/:id", function(req, res) {
     Bike.findById(req.params.id).populate("comments").exec(function(err, foundbike) {
         if(err){
             console.log(err);
         }   else {
-            res.render("campgrounds/show", {bike: foundbike});
+            res.render("bikes/show", {bike: foundbike});
         }
     });
 });
 
-//Campgrounds Edit - Show edit form
-router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res) {
+//Bike Edit - Show edit form
+router.get("/:id/edit", middleware.checkBikeOwnership, function(req, res) {
     Bike.findById(req.params.id, function(err, bike){
-            res.render("campgrounds/edit", {bike: bike});
+            res.render("bikes/edit", {bike: bike});
     });
 });
 
-//Campgrounds Update - Update campground
-router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
-    Campground.findByIdAndUpdate(req.params.id, req.body, function(err, campground){
+//Bikes Update - Update bike
+router.put("/:id", middleware.checkBikeOwnership, function(req, res){
+    Bike.findByIdAndUpdate(req.params.id, req.body, function(err, bike){
         if(err){
-            res.redirect("/campgrounds/" + req.params.id + "/edit");
+            res.redirect("/bikes/" + req.params.id + "/edit");
         }   else    {
             console.log(req.body);
-            res.redirect("/campgrounds/" + req.params.id);
+            res.redirect("/bikes/" + req.params.id);
         }
     });
 });
 
-//Campgrounds Destroy- Delete Campground
-router.delete("/:id", middleware.checkCampgroundOwnership, function(req,res){
-    Campground.findByIdAndRemove(req.params.id, function(err){
+//Bikes Destroy- Delete Bike
+router.delete("/:id", middleware.checkBikeOwnership, function(req,res){
+    Bike.findByIdAndRemove(req.params.id, function(err){
         if(err){
-            res.redirect("/campgrounds/" + req.params.id)
+            res.redirect("/bikes/" + req.params.id)
         }   else    {
-            res.redirect("/campgrounds");
+            res.redirect("/bikes");
         }
     });
 });
-*/
+
 module.exports = router;

@@ -37,7 +37,7 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
                     comment.save();
                     bike.comments.push(comment);
                     bike.save();
-                    req.flash("success", "Successfully added comment! :)")
+                    req.flash("success", "Added comment! :)")
                     res.redirect("/bikes/" + req.params.id);
                 }
             });
@@ -68,6 +68,7 @@ router.put("/:commentid", middleware.checkCommentOwnership, function(req, res){
         if(err){
             console.log(err);
         }   else    {
+            req.flash("success", "Updated comment! :)")
             res.redirect("/bikes/" + req.params.id);
         }
     });
@@ -80,7 +81,7 @@ router.delete("/:commentid", middleware.checkCommentOwnership, function(req, res
             console.log(err);
         }   else    {
         req.flash("success", "Comment deleted");
-        res.redirect("/campgrounds/" + req.params.id);
+        res.redirect("/bikes/" + req.params.id);
         }
     });
 }); 

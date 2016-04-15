@@ -27,6 +27,7 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
             newBike.author.username = req.user.username;
             newBike.save();
             console.log("bike created! by " + req.user.username);
+            req.flash("success", "Created new motorcycle");
             res.redirect("/bikes");
         }
     });
@@ -62,6 +63,7 @@ router.put("/:id", middleware.checkBikeOwnership, function(req, res){
             res.redirect("/bikes/" + req.params.id + "/edit");
         }   else    {
             console.log(req.body);
+            req.flash("success", "Updated motorcycle");
             res.redirect("/bikes/" + req.params.id);
         }
     });
@@ -73,6 +75,7 @@ router.delete("/:id", middleware.checkBikeOwnership, function(req,res){
         if(err){
             res.redirect("/bikes/" + req.params.id)
         }   else    {
+            req.flash("success", "Removed motorcycle");
             res.redirect("/bikes");
         }
     });
